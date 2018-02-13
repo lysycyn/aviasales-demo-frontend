@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import Popular from './Popular';
+import Best from './Best';
 
 class App extends Component {
   render() {
@@ -8,6 +9,7 @@ class App extends Component {
       <div>
         <Header />
         <Popular />
+        <Best />
       </div>
     );
   }

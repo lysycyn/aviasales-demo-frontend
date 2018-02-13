@@ -1,5 +1,6 @@
 h1,
-h2 {
+h2,
+p {
   margin: 0;
 }
 
@@ -7,13 +8,13 @@ html {
   font-family: "Roboto", Helvetica Neue, Open Sans, no-serif;
 }
 
-body {
-  background-color: #f8fcff;
-}
-
 button {
   outline: 0;
   border: none;
   cursor: pointer;
   background: none;
+}
+
+a {
+  text-decoration: none;
 }

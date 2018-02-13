@@ -5,6 +5,10 @@ import Filters from './Filters';
 import RoundIcon from './../common/RoundIcon';
 import compass from './../assets/compass.svg';
 import DropDownCity from './DropDownCity';
+import Card from './Card';
+
+import image1 from './../assets/bg1.jpg';
+import flagRu from './../assets/flag_ru.png';
 
 const Layout = styled.section`
   padding-top: 56px;
@@ -34,7 +38,14 @@ class Popular extends Component {
         <RoundIcon src={compass} />
         <div className="container">
           <div className="row">
-            <div className="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-lg-offset-4 col-lg-4">
+            <div className="
+              col-xs-offset-1
+              col-xs-10
+              col-sm-offset-2
+              col-sm-8
+              col-lg-offset-4
+              col-lg-4"
+            >
               <Title>
                 Популярные направления перелетов из города
                 <DropDownCity />
@@ -43,6 +54,76 @@ class Popular extends Component {
           </div>
         </div>
         <Filters />
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-lg-6">
+              <Card
+                href="#"
+                flag={flagRu}
+                srcImg={image1}
+                city="Краснодар"
+                country="Россия"
+                date="18 марта"
+                price="2534"
+              />
+            </div>
+            <div className="col-xs-12 col-lg-6">
+              <Card
+                href="#"
+                flag={flagRu}
+                srcImg={image1}
+                city="Краснодар"
+                country="Россия"
+                date="18 марта"
+                price="2534"
+              />
+            </div>
+            <div className="col-xs-12 col-lg-6">
+              <Card
+                href="#"
+                flag={flagRu}
+                city="Краснодар"
+                srcImg={image1}
+                country="Россия"
+                date="18 марта"
+                price="2534"
+              />
+            </div>
+            <div className="col-xs-12 col-lg-6">
+              <Card
+                href="#"
+                flag={flagRu}
+                city="Краснодар"
+                srcImg={image1}
+                country="Россия"
+                date="18 марта"
+                price="2534"
+              />
+            </div>
+            <div className="col-xs-12 col-lg-6">
+              <Card
+                href="#"
+                flag={flagRu}
+                city="Краснодар"
+                srcImg={image1}
+                country="Россия"
+                date="18 марта"
+                price="2534"
+              />
+            </div>
+            <div className="col-xs-12 col-lg-6">
+              <Card
+                href="#"
+                flag={flagRu}
+                srcImg={image1}
+                city="Краснодар"
+                country="Россия"
+                date="18 марта"
+                price="2534"
+              />
+            </div>
+          </div>
+        </div>
       </Layout>
     );
   }
