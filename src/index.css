@@ -1,5 +1,19 @@
-body {
+h1,
+h2 {
   margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+}
+
+html {
+  font-family: "Roboto", Helvetica Neue, Open Sans, no-serif;
+}
+
+body {
+  background-color: #f8fcff;
+}
+
+button {
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  background: none;
 }
