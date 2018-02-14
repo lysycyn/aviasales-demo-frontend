@@ -5,6 +5,7 @@ import Best from './Best';
 import SpecialOffers from './SpecialOffers';
 import Blog from './Blog';
 import Mobile from './Mobile';
+import Footer from './Footer';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         <SpecialOffers />
         <Blog />
         <Mobile />
+        <Footer />
       </div>
     );
   }
