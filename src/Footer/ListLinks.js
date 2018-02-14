@@ -31,7 +31,6 @@ const LinksWrapper = styled.div`
 class ListLinks extends Component {
   render() {
     const { title, links, allLink } = { ...this.props };
-    console.log(links);
     return (
       <Layout>
         <Title>{title}</Title>
