@@ -3,6 +3,8 @@ import Header from './Header';
 import Popular from './Popular';
 import Best from './Best';
 import SpecialOffers from './SpecialOffers';
+import Blog from './Blog';
+import Mobile from './Mobile';
 
 class App extends Component {
   render() {
@@ -12,6 +14,8 @@ class App extends Component {
         <Popular />
         <Best />
         <SpecialOffers />
+        <Blog />
+        <Mobile />
       </div>
     );
   }

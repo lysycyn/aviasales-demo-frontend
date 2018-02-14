@@ -12,6 +12,7 @@ const Layout = styled.section`
 
   @media screen and (max-width: ${media.sm}) {
     padding-top: 16px;
+    padding-bottom: 24px;
     background: linear-gradient(162.96deg, #00b0de 41.41%, #196ebd 141.41%);
   }
 `;
@@ -25,6 +26,28 @@ const Title = styled.h2`
     margin-bottom: 24px;
     font-size: 28px;
   }
+`;
+
+const Text = styled.div`
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: ${media.sm}) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const AllLink = styled.a`
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #fff;
+  text-decoration: underline;
+`;
+
+const Remark = styled.span`
+  color: #fff;
+  font-size: 16px;
 `;
 
 class SpecialOffers extends Component {
@@ -72,6 +95,12 @@ class SpecialOffers extends Component {
                   Специальное предложение от авиакомпании Lufthansa"
               />
             </div>
+          </div>
+          <div className="col-xs-12">
+            <Text>
+              <AllLink href="#">Смотреть все спецпредложения</AllLink>
+              <Remark>* средняя цена по направлению</Remark>
+            </Text>
           </div>
         </div>
       </Layout>
