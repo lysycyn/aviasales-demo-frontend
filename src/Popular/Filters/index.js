@@ -1,46 +1,55 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import Filter from './Filter';
-import filter1 from '../../assets/filter1.svg';
-import filter2 from '../../assets/filter2.svg';
-import filter3 from '../../assets/filter3.svg';
-import filter4 from '../../assets/filter4.svg';
-import filter5 from '../../assets/filter5.svg';
-import filter6 from '../../assets/filter6.svg';
+import anywhere from './anywhere.svg';
+import sun from './sun.svg';
+import shop from './shop.svg';
+import culture from './culture.svg';
+import nightlife from './nightlife.svg';
+import children from './children.svg';
 
-const Wrapper = styled.div`
+const Filters = styled.div`
   padding-bottom: 20px;
 `;
 
-class Filters extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-4 col-sm-2">
-              <Filter src={filter1} title="Куда угодно" />
-            </div>
-            <div className="col-xs-4 col-sm-2">
-              <Filter src={filter2} title="Солнце и море" />
-            </div>
-            <div className="col-xs-4 col-sm-2">
-              <Filter src={filter3} title="Шопинг, город" />
-            </div>
-            <div className="col-xs-4 col-sm-2">
-              <Filter src={filter4} title="Культура и история" />
-            </div>
-            <div className="col-xs-4 col-sm-2">
-              <Filter src={filter5} title="Ночная жизнь" />
-            </div>
-            <div className="col-xs-4 col-sm-2">
-              <Filter src={filter6} title="Отдых и семья" />
-            </div>
-          </div>
-        </div>
-      </Wrapper>
-    );
-  }
-}
+const filters = [
+  {
+    img: anywhere,
+    title: 'Куда угодно',
+  },
+  {
+    img: sun,
+    title: 'Солнце и море',
+  },
+  {
+    img: shop,
+    title: 'Шопинг, город',
+  },
+  {
+    img: culture,
+    title: 'Культура и история',
+  },
+  {
+    img: nightlife,
+    title: 'Ночная жизнь',
+  },
+  {
+    img: children,
+    title: 'Отдых и семья',
+  },
+];
 
-export default Filters;
+export default () => (
+  <Filters>
+    <Grid>
+      <Row>
+        {filters.map(filter => (
+          <Col xs={4} sm={2}>
+            <Filter>{filter}</Filter>
+          </Col>
+        ))}
+      </Row>
+    </Grid>
+  </Filters>
+);

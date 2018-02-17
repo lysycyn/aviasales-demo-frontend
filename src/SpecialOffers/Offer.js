@@ -1,43 +1,57 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import media from './../common/media';
 
-const Layout = styled.section`
+const Offer = styled.section`
   margin-bottom: 12px;
+
+  @media screen and (min-width: ${media.lg}) {
+    max-width: ;
+  }
 `;
 
 const Header = styled.div`
   background-color: #cd2027;
   padding: 12px 16px;
+
+  @media screen and (min-width: ${media.sm}) {
+    padding: ;
+  }
 `;
 
 const Content = styled.div`
-  padding: 16px 8px;
+  padding: 18px 8px;
   background-color: #fff;
 `;
 
-const Title = styled.p`
+const Title = styled.h3`
+  margin: 0;
+  padding-right: 45px;
   background-size: 38px 38px;
   background-repeat: no-repeat;
-  background-image: url(${props => props.src});
+  background-image: url(${props => props.img});
   background-position: right center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
   font-size: 16px;
   line-height: 38px;
   color: #fff;
 `;
 
-const CompanyWrapper = styled.div`
+const Company = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
 `;
 
-const CompanyImage = styled.img`
+const Image = styled.img`
   width: 122px;
   height: 30px;
 `;
 
-const PriceWrapper = styled.div`
+const PriceInformation = styled.div`
   text-align: right;
 `;
 
@@ -64,10 +78,14 @@ const Remaining = styled.div`
   text-align: right:
 `;
 
-const Text = styled.p`
+const Descr = styled.p`
   font-size: 12px;
   line-height: 16px;
-  margin-bottom: 45px;
+  margin: 0 0 45px;
+
+  @media screen and (min-width: ${media.sm}) {
+    min-height: 50px;
+  }
 `;
 
 const Button = styled.button`
@@ -82,30 +100,26 @@ const Button = styled.button`
   border-radius: 3px;
 `;
 
-class Offer extends Component {
-  render() {
-    const {
-      titleSrc, title, companySrc, price, remaining, text,
-    } = { ...this.props };
-    return (
-      <Layout>
-        <Header>
-          <Title src={titleSrc}>{title}</Title>
-        </Header>
-        <Content>
-          <CompanyWrapper>
-            <CompanyImage src={companySrc} />
-            <PriceWrapper>
-              <Price>{price}</Price>
-              <Remaining>Осталось {remaining} дней</Remaining>
-            </PriceWrapper>
-          </CompanyWrapper>
-          <Text>{text}</Text>
-          <Button>Узнать подробности</Button>
-        </Content>
-      </Layout>
-    );
-  }
-}
-
-export default Offer;
+export default (props) => {
+  const {
+    titleBg, title, companyImgSrc, price, remaining, text,
+  } = { ...props.children };
+  return (
+    <Offer>
+      <Header>
+        <Title img={titleBg}>{title}</Title>
+      </Header>
+      <Content>
+        <Company>
+          <Image src={companyImgSrc} />
+          <PriceInformation>
+            <Price>{price}</Price>
+            <Remaining>Осталось {remaining} дней</Remaining>
+          </PriceInformation>
+        </Company>
+        <Descr>{text}</Descr>
+        <Button>Узнать подробности</Button>
+      </Content>
+    </Offer>
+  );
+};

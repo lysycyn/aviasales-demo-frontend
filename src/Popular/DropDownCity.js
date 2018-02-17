@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import media from '../common/media';
 import edit from '../assets/edit.svg';
 
-const Wrapper = styled.div`
-  display: inline-block;
+const DropDownCity = styled.div`
+  display: block;
+  text-align: center;
   position: relative;
 
-  @media screen and (max-width: ${media.sm}) {
-    display: block;
-    text-align: center;
+  @media screen and (min-width: ${media.sm}) {
+    display: inline-block;
   }
 `;
 
@@ -20,7 +20,7 @@ const DropDownList = styled.div`
 
 const Button = styled.button`
   color: #1cade0;
-  font-size: 24px;
+  font-size: 18px;
 
   &::after {
     content: '';
@@ -31,20 +31,14 @@ const Button = styled.button`
     background-image: url(${edit});
   }
 
-  @media screen and (max-width: ${media.sm}) {
-    font-size: 18px;
+  @media screen and (min-width: ${media.sm}) {
+    font-size: 24px;
   }
 `;
 
-class DropDownCity extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Button>Москва</Button>
-        <DropDownList />
-      </Wrapper>
-    );
-  }
-}
-
-export default DropDownCity;
+export default () => (
+  <DropDownCity>
+    <Button>Москва</Button>
+    <DropDownList />
+  </DropDownCity>
+);

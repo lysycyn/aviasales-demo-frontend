@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -31,21 +31,15 @@ const Link = styled.a`
   color: #00ace2;
 `;
 
-class Post extends Component {
-  render() {
-    const {
-      srcTitle, title, text, href,
-    } = { ...this.props };
-    return (
-      <Wrapper>
-        <Title src={srcTitle}>{title}</Title>
-        <Text>
-          {text}
-          <Link href={href}>подробнее</Link>
-        </Text>
-      </Wrapper>
-    );
-  }
-}
-
-export default Post;
+export default (props) => {
+  const { titleIcon, title, text } = { ...props.children };
+  return (
+    <Wrapper>
+      <Title src={titleIcon}>{title}</Title>
+      <Text>
+        {text}
+        <Link href="/">подробнее</Link>
+      </Text>
+    </Wrapper>
+  );
+};

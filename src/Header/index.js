@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
 import Form from './Form';
-import logo from '../assets/logo.svg';
+import logo from './logo.svg';
 import media from '../common/media';
 
-const Layout = styled.section`
+const Header = styled.section`
   background: linear-gradient(
     #00b0de 0%,
     #01aedc 3.7%,
@@ -18,7 +19,7 @@ const Layout = styled.section`
   align-items: center;
 `;
 
-const HeaderWrapper = styled.header`
+const Title = styled.header`
   position: absolute;
   top: 0;
   padding: 12px 0;
@@ -32,37 +33,33 @@ const Logo = styled.img`
   height: 30px;
 `;
 
-const Title = styled.div`
+const Name = styled.p`
+  display: none;
+  margin: 0;
   margin-left: 12px;
   text-transform: lowercase;
   color: #fff;
   font-size: 20px;
 
-  @media screen and (max-width: ${media.sm}) {
-    display: none;
+  @media screen and (min-width: ${media.sm}) {
+    display: block;
   }
 `;
 
-class Header extends Component {
-  render() {
-    return (
-      <Layout>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              <HeaderWrapper>
-                <Logo src={logo} alt="Aviasales" />
-                <Title>Aviasales</Title>
-              </HeaderWrapper>
-            </div>
-            <div className="col-xs-12 col-sm-offset-1 col-sm-10">
-              <Form />
-            </div>
-          </div>
-        </div>
-      </Layout>
-    );
-  }
-}
-
-export default Header;
+export default () => (
+  <Header>
+    <Grid>
+      <Row>
+        <Col xs={12}>
+          <Title>
+            <Logo src={logo} alt="Aviasales" />
+            <Name>Aviasales</Name>
+          </Title>
+        </Col>
+        <Col xs={12} smOffset={1} sm={10}>
+          <Form />
+        </Col>
+      </Row>
+    </Grid>
+  </Header>
+);

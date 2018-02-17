@@ -1,21 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import ListLinks from './ListLinks';
-import vk from '../assets/vk.svg';
-import appleWhite from '../assets/appleWhite.svg';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import LinksSection from './LinksSection';
 import AppLink from './AppLink';
 
-const Layout = styled.section`
+import vkontakte from './vk.svg';
+import facebook from './facebook.svg';
+import twitter from './twitter.svg';
+import instagram from './instagram.svg';
+import viber from './viber.svg';
+import windows from './windows.svg';
+import apple from './apple.svg';
+import google from './apple.svg';
+
+const Footer = styled.footer`
   padding-top: 32px;
   background: #f8fcff;
 `;
 
-const NavWrapper = styled.div`
+const Navigation = styled.div`
   padding-bottom: 24px;
   border-bottom: 1px solid #e0e6e8;
 `;
 
-const AppWrapper = styled.div`
+const Social = styled.div`
   padding: 24px 0;
 `;
 
@@ -29,13 +37,14 @@ const ArticleLink = styled.a`
 const SocialLink = styled.a`
   display: inline-block;
   padding-left: 20px;
+  margin-right: 12px;
   color: #5b5b5c;
-  background-image: url(${props => props.src});
+  background-image: url(${props => props.icon});
   background-repeat: no-repeat;
   background-position: left center;
 `;
 
-const AppLinksWrapper = styled.div`
+const AppLinks = styled.div`
   padding-top: 24px;
   text-align: center;
 `;
@@ -62,85 +71,116 @@ const navLinks = [
   },
   {
     title: 'Города',
-    links: ['Москва', 'Санкт-петербург', 'Семферополь', 'Адлер', 'Екатеринбург', 'Лондон'],
+    links: ['Москва', 'Санкт-петербург', 'Симферополь', 'Адлер', 'Екатеринбург', 'Лондон'],
     allLink: 'Все города',
   },
   {
-    title: 'Страны',
-    links: ['Россия', 'Таиланд', 'Черногория', 'Кипр', 'Болгария', 'Грузия'],
-    allLink: 'Все страны',
+    title: 'Авиакомпании',
+    links: ['Air Berlin', 'Air France', 'Alitalia', 'Air Baltic', 'Emirates', 'KLM'],
+    allLink: 'Все авиакомпании',
   },
   {
-    title: 'Города',
-    links: ['Москва', 'Санкт-петербург', 'Семферополь', 'Адлер', 'Екатеринбург', 'Лондон'],
-    allLink: 'Все города',
+    title: 'Аэропорты',
+    links: ['Шереметьево', 'Курумоч', 'Домодедово', 'Толмачево', 'Владивосток', 'Гамбург'],
+    allLink: 'Все аэропорты',
+  },
+  {
+    title: 'Направления',
+    links: ['MOW – SIP', 'MOW – AER', 'MOW – TIV', 'MOW – MRV', 'LED – MOW', 'MOW – BKK'],
+  },
+  {
+    title: 'Сервисы',
+    links: [
+      'Горящие авиабилеты',
+      'Календарь низких цен',
+      'Карта низких цен',
+      'Спецпредложения',
+      'Таблица цен',
+      'Блог',
+      'Помощь',
+    ],
   },
 ];
 
-class Header extends Component {
-  render() {
-    return (
-      <Layout>
-        <NavWrapper>
-          <div className="container">
-            <div className="row">
-              {navLinks.map(list => (
-                <div className="col-xs-6">
-                  <ListLinks title={list.title} allLink={list.allLink} links={list.links} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </NavWrapper>
-        <AppWrapper>
-          <div className="container">
-            <div className="row">
-              <div className="col-xs-12">
-                <ArticleLink href="#">О компании</ArticleLink>
-                <ArticleLink href="#">Партнерская программа</ArticleLink>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-4">
-                <SocialLink href="#" src={vk}>
-                  В контакте
-                </SocialLink>
-              </div>
-              <div className="col-xs-4">
-                <SocialLink href="#" src={vk}>
-                  В контакте
-                </SocialLink>
-              </div>
-              <div className="col-xs-4">
-                <SocialLink href="#" src={vk}>
-                  В контакте
-                </SocialLink>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12">
-                <Note>Поиск и бронирование отелей</Note>
-                <AppLinksWrapper>
-                  <div className="row">
-                    <div className="col-xs-12">
-                      <AppLink src={appleWhite} title="Apple Store" />
-                    </div>
-                    <div className="col-xs-12">
-                      <AppLink src={appleWhite} title="Apple Store" />
-                    </div>
-                    <div className="col-xs-12">
-                      <AppLink src={appleWhite} title="Apple Store" />
-                    </div>
-                  </div>
-                </AppLinksWrapper>
-                <Copyright>© 2007–2018, Aviasales — дешевые авиабилеты</Copyright>
-              </div>
-            </div>
-          </div>
-        </AppWrapper>
-      </Layout>
-    );
-  }
-}
+const socialLinks = [
+  {
+    icon: vkontakte,
+    title: 'В контакте',
+  },
+  {
+    icon: facebook,
+    title: 'В контакте',
+  },
+  {
+    icon: twitter,
+    title: 'Твиттер',
+  },
+  {
+    icon: instagram,
+    title: 'Инстаграм',
+  },
+  {
+    icon: viber,
+    title: 'Вайбер',
+  },
+];
 
-export default Header;
+const appLinks = [
+  {
+    icon: apple,
+    title: 'Apple Store',
+    subTitle: 'скачайте в',
+  },
+  {
+    icon: google,
+    title: 'Apple Store',
+    subTitle: 'скачайте в',
+  },
+  {
+    icon: windows,
+    title: 'Windows Phone',
+  },
+];
+
+const pageLinks = [
+  'О компании',
+  'Партнерская программа',
+  'Реклама',
+  'Вакансии',
+  'Помощь',
+  'Правила',
+  'White Label авиабилеты',
+];
+
+export default () => (
+  <Footer>
+    <Navigation>
+      <Grid>
+        <Row>
+          {navLinks.map(links => (
+            <Col xs={6} sm={4} lg={2}>
+              <LinksSection>{links}</LinksSection>
+            </Col>
+          ))}
+        </Row>
+      </Grid>
+    </Navigation>
+    <Grid>
+      <Row>
+        <Col xs={12}>
+          <Social>
+            {socialLinks.map(link => (
+              <SocialLink href="#" icon={link.icon}>
+                {link.title}
+              </SocialLink>
+            ))}
+            {pageLinks.map(link => <ArticleLink>{link}</ArticleLink>)}
+            <AppLinks>{appLinks.map(link => <AppLink>{link}</AppLink>)}</AppLinks>
+            <Note>Поиск и бронирование отелей</Note>
+            <Copyright>© 2007–2018, Aviasales — дешевые авиабилеты</Copyright>
+          </Social>
+        </Col>
+      </Row>
+    </Grid>
+  </Footer>
+);

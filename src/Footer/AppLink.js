@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import media from './../common/media';
 
-const Layout = styled.a`
+const Link = styled.a`
   display: inline-block;
   margin-bottom: 12px;
+
   border-radius: 4px;
   padding: 6px 16px;
   background-color: #1e292d;
@@ -11,9 +13,18 @@ const Layout = styled.a`
   background-repeat: no-repeat;
   background-position: 16px center;
   padding-left: 43px;
+
+  @media screen and (min-width: ${media.sm}) {
+    margin-right: 16px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 `;
 
 const Title = styled.p`
+  margin: 0;
   color: white;
   text-transform: uppercase;
   font-weight: 700;
@@ -21,21 +32,20 @@ const Title = styled.p`
 `;
 
 const Note = styled.p`
+  margin: 0;
   text-align: left;
   color: #fff;
   font-size: 9px;
+  min-height: 9px;
   margin-bottom: 8px;
 `;
 
-class AppLink extends Component {
-  render() {
-    return (
-      <Layout src={this.props.src}>
-        <Note>скачайте в</Note>
-        <Title>{this.props.title}</Title>
-      </Layout>
-    );
-  }
-}
-
-export default AppLink;
+export default (props) => {
+  const { icon, title, subTitle } = { ...props.children };
+  return (
+    <Link href="/" src={icon}>
+      <Note>{subTitle}</Note>
+      <Title>{title}</Title>
+    </Link>
+  );
+};

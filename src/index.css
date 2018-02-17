@@ -1,15 +1,13 @@
-h1,
-h2,
-p {
-  margin: 0;
-}
-
 html {
   font-family: "Roboto", Helvetica Neue, Open Sans, no-serif;
 }
 
-button {
+button:focus,
+a:focus {
   outline: 0;
+}
+
+button {
   border: none;
   cursor: pointer;
   background: none;

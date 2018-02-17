@@ -1,74 +1,79 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import media from '../common/media';
 
-const Wrapper = styled.div`
-  margin-bottom: 31px;
+const Card = styled.div`
+  margin-bottom: 25px;
   overflow: hidden;
   border-radius: 8px;
   box-shadow: 0px 2px 12px rgba(0, 75, 93, 0.12);
 
-  @media screen and (max-width: ${media.sm}) {
-    margin-bottom: 25px;
+  @media screen and (min-width: ${media.sm}) {
+    margin-bottom: 23px;
+  }
+
+  @media screen and (min-width: ${media.lg}) {
+    margin-bottom: 31px;
   }
 `;
 
-const ImageBlock = styled.div`
-  height: 212px;
-  background-image: url(${props => props.src});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+const Image = styled.img`
+  height: 176px;
+  width: 100%;
+  object-fit: cover;
 
-  @media screen and (max-width: ${media.sm}) {
-    height: 176px;
+  @media screen and (min-width: ${media.sm}) {
+    height: 212px;
   }
 `;
 
-const TextBlock = styled.div`
+const Content = styled.div`
   padding: 16px;
   display: flex;
   justify-content: space-between;
 `;
 
-const City = styled.div`
-  font-size: 22px;
-  line-height: 32px;
+const City = styled.p`
+  font-size: 16px;
+  line-height: 20px;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin: 0 0 4px;
 
-  @media screen and (max-width: ${media.sm}) {
-    font-size: 16px;
-    line-height: 20px;
+  @media screen and (min-width: ${media.sm}) {
+    font-size: 22px;
+    line-height: 32px;
   }
 `;
 
 const Price = styled.a`
   display: inline-block;
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 14px;
+  line-height: 20px;
   color: #00bae8;
   margin-bottom: 4px;
 
-  @media screen and (max-width: ${media.sm}) {
-    font-size: 14px;
-    line-height: 20px;
+  @media screen and (min-width: ${media.sm}) {
+    font-size: 22px;
+    line-height: 32px;  
   }
 `;
 
-const Country = styled.div`
+const Country = styled.p`
+  margin: 0;
   font-size: 12px;
   line-height: 20px;
   text-transform: uppercase;
   color: #a0b0b9;
 `;
 
-const Date = styled.div`
+const Date = styled.p`
+  margin: 0;
   font-size: 12px;
   color: #a0b0b9;
+  text-align: right;
 `;
 
-const PlaceBlock = styled.div`
+const Place = styled.div`
   display: flex;
   align-items: center;
 `;
@@ -77,33 +82,34 @@ const Flag = styled.img`
   width: 30px;
   height: 30px;
   margin-right: 16px;
+  border-radius: 50%;
+  display: none;
 
-  @media screen and (max-width: ${media.sm}) {
-    display: none;
+  @media screen and (min-width: ${media.sm}) {
+    display: block;
   }
 `;
 
-class Card extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <ImageBlock src={this.props.srcImg} />
-        <TextBlock>
-          <PlaceBlock>
-            <Flag src={this.props.flag} />
-            <div>
-              <City>{this.props.city}</City>
-              <Country>{this.props.country}</Country>
-            </div>
-          </PlaceBlock>
+export default (props) => {
+  const {
+    src, src_2x, flag, city, country, price, date,
+  } = { ...props.children };
+  return (
+    <Card>
+      <Image src={src} srcSet={`${src_2x} 2x`}/>
+      <Content>
+        <Place>
+          <Flag src={flag} />
           <div>
-            <Price href={this.props.href}>Найти от {this.props.price} ₽</Price>
-            <Date>{this.props.date}</Date>
+            <City>{city}</City>
+            <Country>{country}</Country>
           </div>
-        </TextBlock>
-      </Wrapper>
-    );
-  }
-}
-
-export default Card;
+        </Place>
+        <div>
+          <Price href="#">Найти от {price} ₽</Price>
+          <Date>{date}</Date>
+        </div>
+      </Content>
+    </Card>
+  );
+};

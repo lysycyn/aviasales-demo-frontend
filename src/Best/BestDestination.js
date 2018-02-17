@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import media from '../common/media';
 
 const Wrapper = styled.div`
-  border-right: 1px dashed #afbec6;
-  padding-right: 16px;
+  padding-top: 24px;
+  padding-bottom: 24px;
 
-  @media screen and (max-width: ${media.sm}) {
-    padding-right: 0;
-    padding-top: 24px;
-    padding-bottom: 24px;
+  @media screen and (min-width: ${media.lg}) {
+    padding-top: 0;
+    padding-bottom: 0;
     border: none;
-    border-bottom: 1px dashed #afbec6;
+  }
+
+  &:last-child {
+    border: none;
   }
 `;
 
@@ -23,15 +25,10 @@ const PlaceBlock = styled.div`
 `;
 
 const City = styled.div`
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 20px;
   font-weight: 700;
   margin-bottom: 4px;
-
-  @media screen and (max-width: ${media.sm}) {
-    font-size: 16px;
-    line-height: 20px;
-  }
 `;
 
 const Country = styled.div`
@@ -42,9 +39,10 @@ const Country = styled.div`
 `;
 
 const Flag = styled.img`
-  width: 44px;
-  height: 44px;
+  width: 30px;
+  height: 30px;
   margin-right: 16px;
+  border-radius: 50%;
 `;
 
 const Row = styled.div`
@@ -63,26 +61,25 @@ const Price = styled.a`
   color: #00bae8;
 `;
 
-class BestDestination extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <PlaceBlock>
-          <Flag src={this.props.flag} />
-          <div>
-            <City>{this.props.city}</City>
-            <Country>{this.props.country}</Country>
-          </div>
-        </PlaceBlock>
-        {this.props.rows.map(row => (
-          <Row key={row.city}>
-            <City>{row.city}</City>
-            <Price href="#">от {row.price} ₽</Price>
-          </Row>
-        ))}
-      </Wrapper>
-    );
-  }
-}
-
-export default BestDestination;
+export default (props) => {
+  const {
+    flag, city, country, prices,
+  } = { ...props.children };
+  return (
+    <Wrapper>
+      <PlaceBlock>
+        <Flag src={flag} />
+        <div>
+          <City>{city}</City>
+          <Country>{country}</Country>
+        </div>
+      </PlaceBlock>
+      {prices.map(row => (
+        <Row key={row.city}>
+          <City>{row.city}</City>
+          <Price href="#">от {row.price} ₽</Price>
+        </Row>
+      ))}
+    </Wrapper>
+  );
+};

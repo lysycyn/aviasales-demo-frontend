@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const Wrapper = styled.div`
+const Filter = styled.div`
   text-align: center;
   margin-bottom: 24px;
 `;
@@ -20,6 +20,7 @@ const Icon = styled.div`
 `;
 
 const Title = styled.p`
+  margin: 0;
   color: #00ace2;
   font-size: 12px;
   line-height: 20px;
@@ -43,17 +44,14 @@ const Button = styled.button`
   }
 `;
 
-class Filter extends Component {
-  render() {
-    return (
-      <Wrapper>
-        <Button>
-          <Icon src={this.props.src} />
-          <Title>{this.props.title}</Title>
-        </Button>
-      </Wrapper>
-    );
-  }
-}
-
-export default Filter;
+export default (props) => {
+  const { img, title } = { ...props.children };
+  return (
+    <Filter>
+      <Button>
+        <Icon src={img} />
+        <Title>{title}</Title>
+      </Button>
+    </Filter>
+  );
+};
