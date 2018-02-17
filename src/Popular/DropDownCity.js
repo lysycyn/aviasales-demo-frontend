@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from '../common/media';
-import edit from '../assets/edit.svg';
+import edit from './icon_edit.svg';
 
 const DropDownCity = styled.div`
   display: block;

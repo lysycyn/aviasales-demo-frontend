@@ -91,16 +91,12 @@ export default () => (
           <Title>Спецпредложения на авиабилеты</Title>
         </Col>
         <Col xs={12} lgOffset={1} lg={10}>
-          <Row smBetween>
-            <Col xs={12} sm={4} lg={3} lgStart>
-              <Offer>{offers[0]}</Offer>
-            </Col>
-            <Col xs={12} sm={4} lg={3} lgCenter>
-              <Offer>{offers[1]}</Offer>
-            </Col>
-            <Col xs={12} sm={4} lg={3} lgEnd>
-              <Offer>{offers[2]}</Offer>
-            </Col>
+          <Row>
+            {offers.map(offer => (
+              <Col xs={12} md={4}>
+                <Offer>{offer}</Offer>
+              </Col>
+            ))}
           </Row>
         </Col>
         <Col xs={12} lgOffset={1} lg={10}>

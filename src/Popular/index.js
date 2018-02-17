@@ -9,18 +9,18 @@ import DropDownCity from './DropDownCity';
 import Card from './Card';
 import flagRu from './../assets/flag_ru.png';
 import flagEs from './../assets/flag_es.png';
-import krs_1x from './krasnodar_1x.jpg';
-import krs_2x from './krasnodar_2x.jpg';
-import sch_1x from './sochi_1x.jpg';
-import sch_2x from './sochi_2x.jpg';
-import spb_1x from './spb_1x.jpg';
-import spb_2x from './spb_2x.jpg';
-import mnv_1x from './minvody_1x.jpg';
-import mnv_2x from './minvody_2x.jpg';
-import smf_1x from './simferopol_1x.jpg';
-import smf_2x from './simferopol_2x.jpg';
-import brc_1x from './barcelona_1x.jpg';
-import brc_2x from './barcelona_2x.jpg';
+import krs1x from './krasnodar_1x.jpg';
+import krs2x from './krasnodar_2x.jpg';
+import sch1x from './sochi_1x.jpg';
+import sch2x from './sochi_2x.jpg';
+import spb1x from './spb_1x.jpg';
+import spb2x from './spb_2x.jpg';
+import mnv1x from './minvody_1x.jpg';
+import mnv2x from './minvody_2x.jpg';
+import smf1x from './simferopol_1x.jpg';
+import smf2x from './simferopol_2x.jpg';
+import brc1x from './barcelona_1x.jpg';
+import brc2x from './barcelona_2x.jpg';
 
 const Popular = styled.section`
   padding-top: 40px;
@@ -48,8 +48,8 @@ const Title = styled.h2`
 const populars = [
   {
     flag: flagRu,
-    src: krs_1x,
-    src_2x: krs_2x,
+    src: krs1x,
+    src2x: krs2x,
     city: 'Краснодар',
     country: 'Россия',
     date: '18 марта',
@@ -57,8 +57,8 @@ const populars = [
   },
   {
     flag: flagRu,
-    src: sch_1x,
-    src_2x: sch_2x,
+    src: sch1x,
+    src2x: sch2x,
     city: 'Сочи (Адлер)',
     country: 'Россия',
     date: '23 марта',
@@ -66,8 +66,8 @@ const populars = [
   },
   {
     flag: flagRu,
-    src: spb_1x,
-    src_2x: spb_2x,
+    src: spb1x,
+    src2x: spb2x,
     city: 'Санкт-Петербург',
     country: 'Россия',
     date: '19 февраля',
@@ -75,8 +75,8 @@ const populars = [
   },
   {
     flag: flagRu,
-    src: mnv_1x,
-    src_2x: mnv_2x,
+    src: mnv1x,
+    src2x: mnv2x,
     city: 'Минеральные воды',
     country: 'Россия',
     date: '19 февраля',
@@ -84,8 +84,8 @@ const populars = [
   },
   {
     flag: flagRu,
-    src: smf_1x,
-    src_2x: smf_2x,
+    src: smf1x,
+    src2x: smf2x,
     city: 'Симферополь',
     country: 'Россия',
     date: '19 февраля',
@@ -93,8 +93,8 @@ const populars = [
   },
   {
     flag: flagEs,
-    src: brc_1x,
-    src_2x: brc_2x,
+    src: brc1x,
+    src2x: brc2x,
     city: 'Барселона',
     country: 'Испания',
     date: '24 марта',

@@ -15,12 +15,24 @@ const Link = styled.a`
   margin-bottom: 12px;
   color: #5b5b5c;
   font-size: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const AllLink = styled.a`
+  display: inline-block;
+  margin-top: 12px;
   font-size: 12px;
   font-weight: 500;
   color: #4a4a4a;
+
+  &:after {
+    content: '\\2192';
+    display: inline-block;
+    margin-left: 5px;
+  }
 `;
 
 const Links = styled.div`
@@ -34,7 +46,7 @@ export default (props) => {
     <Wrapper>
       <Title>{title}</Title>
       <Links>{links.map(link => <Link href="/">{link}</Link>)}</Links>
-      <AllLink href="#">{allLink}</AllLink>
+      {allLink && <AllLink href="#">{allLink}</AllLink>}
     </Wrapper>
   );
 };

@@ -4,19 +4,11 @@ import media from './../common/media';
 
 const Offer = styled.section`
   margin-bottom: 12px;
-
-  @media screen and (min-width: ${media.lg}) {
-    max-width: ;
-  }
 `;
 
 const Header = styled.div`
   background-color: #cd2027;
   padding: 12px 16px;
-
-  @media screen and (min-width: ${media.sm}) {
-    padding: ;
-  }
 `;
 
 const Content = styled.div`

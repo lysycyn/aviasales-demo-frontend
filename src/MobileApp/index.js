@@ -27,6 +27,7 @@ const Image = styled.img`
 
   @media screen and (min-width: ${media.sm}) {
     width: 30%;
+    max-width: 237px;
   }
 `;
 
@@ -88,23 +89,29 @@ const platforms = [
 export default () => (
   <MobileApp>
     <Grid>
-      <ImageWrapper>
-        <Image src={phone} />
-        <Row>
-          <Col xs={12} smOffset={4} sm={8}>
-            <Title>Скачай мобильное приложение Aviasales.ru</Title>
-            <SubTitle>
-              <Raiting src={rating} />
-              Более 103 000 загрузок
-            </SubTitle>
-          </Col>
-          <Col xsOffset={6} xs={6} smOffset={4} sm={8}>
+      <Row>
+        <Col xs={12} lgOffset={1} lg={10}>
+          <ImageWrapper>
+            <Image src={phone} />
             <Row>
-              <Platforms>{platforms.map(platform => <Platform>{platform}</Platform>)}</Platforms>
+              <Col xs={12} smOffset={4} sm={8}>
+                <Title>Скачай мобильное приложение Aviasales.ru</Title>
+                <SubTitle>
+                  <Raiting src={rating} />
+                  Более 103 000 загрузок
+                </SubTitle>
+              </Col>
+              <Col xsOffset={6} xs={6} smOffset={4} sm={8}>
+                <Row>
+                  <Platforms>
+                    {platforms.map(platform => <Platform>{platform}</Platform>)}
+                  </Platforms>
+                </Row>
+              </Col>
             </Row>
-          </Col>
-        </Row>
-      </ImageWrapper>
+          </ImageWrapper>
+        </Col>
+      </Row>
     </Grid>
   </MobileApp>
 );

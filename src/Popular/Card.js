@@ -54,7 +54,7 @@ const Price = styled.a`
 
   @media screen and (min-width: ${media.sm}) {
     font-size: 22px;
-    line-height: 32px;  
+    line-height: 32px;
   }
 `;
 
@@ -92,11 +92,11 @@ const Flag = styled.img`
 
 export default (props) => {
   const {
-    src, src_2x, flag, city, country, price, date,
+    src, src2x, flag, city, country, price, date,
   } = { ...props.children };
   return (
     <Card>
-      <Image src={src} srcSet={`${src_2x} 2x`}/>
+      <Image src={src} srcSet={`${src2x} 2x`} />
       <Content>
         <Place>
           <Flag src={flag} />

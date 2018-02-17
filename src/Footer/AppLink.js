@@ -4,10 +4,10 @@ import media from './../common/media';
 
 const Link = styled.a`
   display: inline-block;
+  width: 85px;
   margin-bottom: 12px;
-
   border-radius: 4px;
-  padding: 6px 16px;
+  padding: 8px 16px;
   background-color: #1e292d;
   background-image: url(${props => props.src});
   background-repeat: no-repeat;
@@ -16,6 +16,7 @@ const Link = styled.a`
 
   @media screen and (min-width: ${media.sm}) {
     margin-right: 16px;
+    margin-bottom: 0;
 
     &:last-child {
       margin-right: 0;
@@ -29,6 +30,9 @@ const Title = styled.p`
   text-transform: uppercase;
   font-weight: 700;
   font-size: 12px;
+  line-height: 15px;
+  text-align: left;
+  max-width: 80px;
 `;
 
 const Note = styled.p`
@@ -37,14 +41,14 @@ const Note = styled.p`
   color: #fff;
   font-size: 9px;
   min-height: 9px;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 `;
 
 export default (props) => {
   const { icon, title, subTitle } = { ...props.children };
   return (
     <Link href="/" src={icon}>
-      <Note>{subTitle}</Note>
+      {subTitle && <Note>{subTitle}</Note>}
       <Title>{title}</Title>
     </Link>
   );

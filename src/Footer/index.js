@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import LinksSection from './LinksSection';
 import AppLink from './AppLink';
+import media from '../common/media';
 
 import vkontakte from './vk.svg';
 import facebook from './facebook.svg';
@@ -11,57 +12,7 @@ import instagram from './instagram.svg';
 import viber from './viber.svg';
 import windows from './windows.svg';
 import apple from './apple.svg';
-import google from './apple.svg';
-
-const Footer = styled.footer`
-  padding-top: 32px;
-  background: #f8fcff;
-`;
-
-const Navigation = styled.div`
-  padding-bottom: 24px;
-  border-bottom: 1px solid #e0e6e8;
-`;
-
-const Social = styled.div`
-  padding: 24px 0;
-`;
-
-const ArticleLink = styled.a`
-  display: inline-block;
-  margin-bottom: 12px;
-  margin-right: 8px;
-  color: #5b5b5c;
-`;
-
-const SocialLink = styled.a`
-  display: inline-block;
-  padding-left: 20px;
-  margin-right: 12px;
-  color: #5b5b5c;
-  background-image: url(${props => props.icon});
-  background-repeat: no-repeat;
-  background-position: left center;
-`;
-
-const AppLinks = styled.div`
-  padding-top: 24px;
-  text-align: center;
-`;
-
-const Note = styled.p`
-  padding-top: 24px;
-  text-align: center;
-  font-size: 12px;
-  color: #5b5b5c;
-`;
-
-const Copyright = styled.p`
-  padding-top: 24px;
-  text-align: center;
-  font-size: 12px;
-  color: #5b5b5c;
-`;
+import google from './google.svg';
 
 const navLinks = [
   {
@@ -133,7 +84,7 @@ const appLinks = [
   },
   {
     icon: google,
-    title: 'Apple Store',
+    title: 'Google Play',
     subTitle: 'скачайте в',
   },
   {
@@ -152,13 +103,104 @@ const pageLinks = [
   'White Label авиабилеты',
 ];
 
+const Footer = styled.footer`
+  padding-top: 32px;
+  background: #f8fcff;
+`;
+
+const Navigation = styled.div`
+  border-bottom: 1px solid #e0e6e8;
+  margin-bottom: 30px;
+`;
+
+const Articles = styled.div``;
+
+const ArticleLink = styled.a`
+  font-size: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  color: #5b5b5c;
+`;
+
+const Social = styled.div`
+  display: flex;
+  padding: 12px 0 24px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  @media screen and (min-width: ${media.xl}) {
+    padding: 8px 0 12px;
+  }
+`;
+
+const SocialLink = styled.a`
+  display: inline-block;
+  flex-basis: 33%;
+  padding-left: 20px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  color: #5b5b5c;
+  background-image: url(${props => props.icon});
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  @media screen and (min-width: ${media.sm}) {
+    flex-basis: auto;
+    margin-right: 12px;
+    font-size: 12px;
+  }
+`;
+
+const AppLinks = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: ${media.sm}) {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  @media screen and (min-width: ${media.xl}) {
+    justify-content: flex-end;
+  }
+`;
+
+const Note = styled.p`
+  margin: 0 0 24px;
+  text-align: center;
+  font-size: 12px;
+  color: #5b5b5c;
+
+  @media screen and (min-width: ${media.sm}) {
+    text-align: left;
+  }
+`;
+
+const Copyright = styled.p`
+  margin: 0 0 12px;
+  padding-top: 24px;
+  text-align: center;
+  font-size: 12px;
+  color: #5b5b5c;
+
+  @media screen and (min-width: ${media.sm}) {
+    text-align: left;
+  }
+
+  @media screen and (min-width: ${media.xl}) {
+    text-align: right;
+  }
+`;
+
 export default () => (
   <Footer>
     <Navigation>
       <Grid>
         <Row>
           {navLinks.map(links => (
-            <Col xs={6} sm={4} lg={2}>
+            <Col xs={6} sm={3} xl={2}>
               <LinksSection>{links}</LinksSection>
             </Col>
           ))}
@@ -167,18 +209,20 @@ export default () => (
     </Navigation>
     <Grid>
       <Row>
-        <Col xs={12}>
+        <Col xs={12} xl={7}>
+          <Articles>{pageLinks.map(link => <ArticleLink>{link}</ArticleLink>)}</Articles>
           <Social>
             {socialLinks.map(link => (
               <SocialLink href="#" icon={link.icon}>
                 {link.title}
               </SocialLink>
             ))}
-            {pageLinks.map(link => <ArticleLink>{link}</ArticleLink>)}
-            <AppLinks>{appLinks.map(link => <AppLink>{link}</AppLink>)}</AppLinks>
-            <Note>Поиск и бронирование отелей</Note>
-            <Copyright>© 2007–2018, Aviasales — дешевые авиабилеты</Copyright>
           </Social>
+          <Note>Поиск и бронирование отелей</Note>
+        </Col>
+        <Col xs={12} xl={5}>
+          <AppLinks>{appLinks.map(link => <AppLink>{link}</AppLink>)}</AppLinks>
+          <Copyright>© 2007–2018, Aviasales — дешевые авиабилеты</Copyright>
         </Col>
       </Row>
     </Grid>
