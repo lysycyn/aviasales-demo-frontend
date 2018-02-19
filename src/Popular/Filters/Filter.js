@@ -44,14 +44,11 @@ const Button = styled.button`
   }
 `;
 
-export default (props) => {
-  const { img } = { ...props };
-  return (
-    <Filter>
-      <Button>
-        <Icon src={img} />
-        <Title>{props.children}</Title>
-      </Button>
-    </Filter>
-  );
-};
+export default props => (
+  <Filter>
+    <Button>
+      <Icon src={props.img} />
+      <Title>{props.children}</Title>
+    </Button>
+  </Filter>
+);

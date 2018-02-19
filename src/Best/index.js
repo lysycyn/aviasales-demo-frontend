@@ -124,9 +124,8 @@ export default () => (
                 flag={pricesList[0].flag}
                 country={pricesList[0].country}
                 city={pricesList[0].city}
-              >
-                {pricesList[0].prices}
-              </BestDestination>
+                prices={pricesList[0].prices}
+              />
             </Col>
             <Col xs={12} smOffset={1} sm={10} lgOffset={0} lg>
               <Divider />
@@ -136,9 +135,8 @@ export default () => (
                 flag={pricesList[1].flag}
                 country={pricesList[1].country}
                 city={pricesList[1].city}
-              >
-                {pricesList[1].prices}
-              </BestDestination>
+                prices={pricesList[1].prices}
+              />
             </Col>
             <Col xs={12} smOffset={1} sm={10} lgOffset={0} lg>
               <Divider />
@@ -148,9 +146,8 @@ export default () => (
                 flag={pricesList[2].flag}
                 country={pricesList[2].country}
                 city={pricesList[2].city}
-              >
-                {pricesList[2].prices}
-              </BestDestination>
+                prices={pricesList[2].prices}
+              />
             </Col>
             <Col lg={1} />
           </Row>

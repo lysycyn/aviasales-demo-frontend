@@ -61,23 +61,20 @@ const Price = styled.a`
   color: #00bae8;
 `;
 
-export default (props) => {
-  const { flag, city, country } = { ...props };
-  return (
-    <Wrapper>
-      <PlaceBlock>
-        <Flag src={flag} />
-        <div>
-          <City>{city}</City>
-          <Country>{country}</Country>
-        </div>
-      </PlaceBlock>
-      {props.children.map(row => (
-        <Row key={row.city}>
-          <City>{row.city}</City>
-          <Price href="#">от {row.price} ₽</Price>
-        </Row>
-      ))}
-    </Wrapper>
-  );
-};
+export default props => (
+  <Wrapper>
+    <PlaceBlock>
+      <Flag src={props.flag} />
+      <div>
+        <City>{props.city}</City>
+        <Country>{props.country}</Country>
+      </div>
+    </PlaceBlock>
+    {props.prices.map(row => (
+      <Row key={row.city}>
+        <City>{row.city}</City>
+        <Price href="#">от {row.price} ₽</Price>
+      </Row>
+    ))}
+  </Wrapper>
+);

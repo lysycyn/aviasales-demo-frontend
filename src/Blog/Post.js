@@ -31,15 +31,12 @@ const Link = styled.a`
   color: #00ace2;
 `;
 
-export default (props) => {
-  const { titleIcon, title } = { ...props };
-  return (
-    <Wrapper>
-      <Title src={titleIcon}>{title}</Title>
-      <Text>
-        {props.children}
-        <Link href="/">подробнее</Link>
-      </Text>
-    </Wrapper>
-  );
-};
+export default props => (
+  <Wrapper>
+    <Title src={props.titleIcon}>{props.title}</Title>
+    <Text>
+      {props.children}
+      <Link href="/">подробнее</Link>
+    </Text>
+  </Wrapper>
+);

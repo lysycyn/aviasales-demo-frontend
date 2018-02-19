@@ -90,26 +90,21 @@ const Flag = styled.img`
   }
 `;
 
-export default (props) => {
-  const {
-    src, src2x, flag, city, country, price, date,
-  } = { ...props };
-  return (
-    <Card>
-      <Image src={src} srcSet={`${src2x} 2x`} />
-      <Content>
-        <Place>
-          <Flag src={flag} />
-          <div>
-            <City>{city}</City>
-            <Country>{country}</Country>
-          </div>
-        </Place>
+export default props => (
+  <Card>
+    <Image src={props.src} srcSet={`${props.src2x} 2x`} />
+    <Content>
+      <Place>
+        <Flag src={props.flag} />
         <div>
-          <Price href="#">Найти от {price} ₽</Price>
-          <Date>{date}</Date>
+          <City>{props.city}</City>
+          <Country>{props.country}</Country>
         </div>
-      </Content>
-    </Card>
-  );
-};
+      </Place>
+      <div>
+        <Price href="#">Найти от {props.price} ₽</Price>
+        <Date>{props.date}</Date>
+      </div>
+    </Content>
+  </Card>
+);

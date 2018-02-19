@@ -92,26 +92,21 @@ const Button = styled.button`
   border-radius: 3px;
 `;
 
-export default (props) => {
-  const {
-    titleBg, title, companyImgSrc, price, remaining,
-  } = { ...props };
-  return (
-    <Offer>
-      <Header>
-        <Title img={titleBg}>{title}</Title>
-      </Header>
-      <Content>
-        <Company>
-          <Image src={companyImgSrc} />
-          <PriceInformation>
-            <Price>{price}</Price>
-            <Remaining>Осталось {remaining} дней</Remaining>
-          </PriceInformation>
-        </Company>
-        <Descr>{props.children}</Descr>
-        <Button>Узнать подробности</Button>
-      </Content>
-    </Offer>
-  );
-};
+export default props => (
+  <Offer>
+    <Header>
+      <Title img={props.titleBg}>{props.title}</Title>
+    </Header>
+    <Content>
+      <Company>
+        <Image src={props.companyImgSrc} />
+        <PriceInformation>
+          <Price>{props.price}</Price>
+          <Remaining>Осталось {props.remaining} дней</Remaining>
+        </PriceInformation>
+      </Company>
+      <Descr>{props.children}</Descr>
+      <Button>Узнать подробности</Button>
+    </Content>
+  </Offer>
+);

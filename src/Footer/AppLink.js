@@ -44,12 +44,9 @@ const Note = styled.p`
   margin-bottom: 5px;
 `;
 
-export default (props) => {
-  const { icon, subTitle } = { ...props };
-  return (
-    <Link href="/" src={icon}>
-      {subTitle && <Note>{subTitle}</Note>}
-      <Title>{props.children}</Title>
-    </Link>
-  );
-};
+export default props => (
+  <Link href="/" src={props.icon}>
+    {props.subTitle && <Note>{props.subTitle}</Note>}
+    <Title>{props.children}</Title>
+  </Link>
+);
