@@ -233,18 +233,18 @@ const Title = styled.h1`
   margin: 0 0 8px;
   color: #fff;
   font-family: Roboto;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 32px;
+  margin-bottom: 8px;
   margin-bottom: 16px;
   font-weight: bold;
   text-align: center;
 
-  @media screen and (max-width: ${media.sm}) {
-    font-size: 32px;
-    margin-bottom: 8px;
+  @media screen and (min-width: ${media.sm}) {
+    font-size: 20px;
+    line-height: 24px;
   }
 
-  @media screen and (max-width: ${media.lg}) {
+  @media screen and (min-width: ${media.lg}) {
     font-size: 40px;
     line-height: 48px;
   }

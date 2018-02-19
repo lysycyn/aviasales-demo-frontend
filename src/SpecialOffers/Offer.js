@@ -94,8 +94,8 @@ const Button = styled.button`
 
 export default (props) => {
   const {
-    titleBg, title, companyImgSrc, price, remaining, text,
-  } = { ...props.children };
+    titleBg, title, companyImgSrc, price, remaining,
+  } = { ...props };
   return (
     <Offer>
       <Header>
@@ -109,7 +109,7 @@ export default (props) => {
             <Remaining>Осталось {remaining} дней</Remaining>
           </PriceInformation>
         </Company>
-        <Descr>{text}</Descr>
+        <Descr>{props.children}</Descr>
         <Button>Узнать подробности</Button>
       </Content>
     </Offer>

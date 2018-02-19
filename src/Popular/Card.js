@@ -93,7 +93,7 @@ const Flag = styled.img`
 export default (props) => {
   const {
     src, src2x, flag, city, country, price, date,
-  } = { ...props.children };
+  } = { ...props };
   return (
     <Card>
       <Image src={src} srcSet={`${src2x} 2x`} />

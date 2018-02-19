@@ -221,7 +221,13 @@ export default () => (
           <Note>Поиск и бронирование отелей</Note>
         </Col>
         <Col xs={12} xl={5}>
-          <AppLinks>{appLinks.map(link => <AppLink>{link}</AppLink>)}</AppLinks>
+          <AppLinks>
+            {appLinks.map(link => (
+              <AppLink subTitle={link.subTitle} icon={link.icon}>
+                {link.title}
+              </AppLink>
+            ))}
+          </AppLinks>
           <Copyright>© 2007–2018, Aviasales — дешевые авиабилеты</Copyright>
         </Col>
       </Row>

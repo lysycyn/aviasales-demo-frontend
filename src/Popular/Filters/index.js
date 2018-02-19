@@ -46,7 +46,7 @@ export default () => (
       <Row>
         {filters.map(filter => (
           <Col xs={4} sm={2}>
-            <Filter>{filter}</Filter>
+            <Filter img={filter.img}>{filter.title}</Filter>
           </Col>
         ))}
       </Row>

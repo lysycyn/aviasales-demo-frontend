@@ -104,7 +104,9 @@ export default () => (
               <Col xsOffset={6} xs={6} smOffset={4} sm={8}>
                 <Row>
                   <Platforms>
-                    {platforms.map(platform => <Platform>{platform}</Platform>)}
+                    {platforms.map(platform => (
+                      <Platform img={platform.img}>{platform.title}</Platform>
+                    ))}
                   </Platforms>
                 </Row>
               </Col>

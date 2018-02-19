@@ -118,7 +118,15 @@ export default () => (
           <Row>
             {populars.map(popular => (
               <Col xs={12} lg={6}>
-                <Card>{popular}</Card>
+                <Card
+                  flag={popular.flag}
+                  src={popular.src}
+                  src2x={popular.src2x}
+                  city={popular.city}
+                  country={popular.country}
+                  date={popular.date}
+                  price={popular.price}
+                />
               </Col>
             ))}
           </Row>

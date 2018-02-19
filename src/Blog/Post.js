@@ -32,12 +32,12 @@ const Link = styled.a`
 `;
 
 export default (props) => {
-  const { titleIcon, title, text } = { ...props.children };
+  const { titleIcon, title } = { ...props };
   return (
     <Wrapper>
       <Title src={titleIcon}>{title}</Title>
       <Text>
-        {text}
+        {props.children}
         <Link href="/">подробнее</Link>
       </Text>
     </Wrapper>

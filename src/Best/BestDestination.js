@@ -62,9 +62,7 @@ const Price = styled.a`
 `;
 
 export default (props) => {
-  const {
-    flag, city, country, prices,
-  } = { ...props.children };
+  const { flag, city, country } = { ...props };
   return (
     <Wrapper>
       <PlaceBlock>
@@ -74,7 +72,7 @@ export default (props) => {
           <Country>{country}</Country>
         </div>
       </PlaceBlock>
-      {prices.map(row => (
+      {props.children.map(row => (
         <Row key={row.city}>
           <City>{row.city}</City>
           <Price href="#">от {row.price} ₽</Price>

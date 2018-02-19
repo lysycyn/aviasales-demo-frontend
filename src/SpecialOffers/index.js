@@ -94,7 +94,15 @@ export default () => (
           <Row>
             {offers.map(offer => (
               <Col xs={12} md={4}>
-                <Offer>{offer}</Offer>
+                <Offer
+                  titleBg={offer.titleBg}
+                  title={offer.title}
+                  companyImgSrc={offer.companyImgSrc}
+                  price={offer.price}
+                  remaining={offer.remaining}
+                >
+                  {offer.text}
+                </Offer>
               </Col>
             ))}
           </Row>

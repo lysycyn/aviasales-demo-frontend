@@ -33,11 +33,11 @@ const Image = styled.img`
 `;
 
 export default (props) => {
-  const { img, title } = { ...props.children };
+  const { img } = { ...props };
   return (
     <Platform>
       <Image src={img} />
-      <Title>{title}</Title>
+      <Title>{props.children}</Title>
     </Platform>
   );
 };

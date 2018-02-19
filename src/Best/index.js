@@ -117,22 +117,40 @@ export default () => (
           <Title>Лучшие цены на авиабилеты за последний месяц</Title>
         </Col>
         <Col xs={12}>
-          <Row lgBetween>
+          <Row between="lg">
             <Col lg={1} />
             <Col xs={12} smOffset={1} sm={10} lgOffset={0} lg={3}>
-              <BestDestination>{pricesList[0]}</BestDestination>
+              <BestDestination
+                flag={pricesList[0].flag}
+                country={pricesList[0].country}
+                city={pricesList[0].city}
+              >
+                {pricesList[0].prices}
+              </BestDestination>
             </Col>
             <Col xs={12} smOffset={1} sm={10} lgOffset={0} lg>
               <Divider />
             </Col>
             <Col xs={12} smOffset={1} sm={10} lgOffset={0} lg={3}>
-              <BestDestination>{pricesList[1]}</BestDestination>
+              <BestDestination
+                flag={pricesList[1].flag}
+                country={pricesList[1].country}
+                city={pricesList[1].city}
+              >
+                {pricesList[1].prices}
+              </BestDestination>
             </Col>
             <Col xs={12} smOffset={1} sm={10} lgOffset={0} lg>
               <Divider />
             </Col>
             <Col xs={12} smOffset={1} sm={10} lgOffset={0} lg={3}>
-              <BestDestination>{pricesList[2]}</BestDestination>
+              <BestDestination
+                flag={pricesList[2].flag}
+                country={pricesList[2].country}
+                city={pricesList[2].city}
+              >
+                {pricesList[2].prices}
+              </BestDestination>
             </Col>
             <Col lg={1} />
           </Row>

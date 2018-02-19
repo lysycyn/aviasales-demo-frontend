@@ -45,11 +45,11 @@ const Note = styled.p`
 `;
 
 export default (props) => {
-  const { icon, title, subTitle } = { ...props.children };
+  const { icon, subTitle } = { ...props };
   return (
     <Link href="/" src={icon}>
       {subTitle && <Note>{subTitle}</Note>}
-      <Title>{title}</Title>
+      <Title>{props.children}</Title>
     </Link>
   );
 };

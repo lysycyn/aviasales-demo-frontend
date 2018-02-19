@@ -63,7 +63,9 @@ export default () => (
       <Row>
         {posts.map(post => (
           <Col xs={12} lgOffset={1} lg={10}>
-            <Post>{post}</Post>
+            <Post title={post.title} titleIcon={post.titleIcon}>
+              {post.text}
+            </Post>
           </Col>
         ))}
       </Row>
