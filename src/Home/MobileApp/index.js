@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import media from '../common/media';
+import media from '../../common/media';
 import Platform from './Platform';
 import phone from './mobile.png';
 import rating from './rating.svg';

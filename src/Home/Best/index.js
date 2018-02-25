@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import media from '../common/media';
+import media from '../../common/media';
 import BestDestination from './BestDestination';
 import calendar from './calendarBig.svg';
-import RoundIcon from '../common/RoundIcon';
-import flagRu from '../assets/flag_ru.png';
-import flagAm from '../assets/flag_am.png';
-import flagMd from '../assets/flag_md.png';
+import RoundIcon from '../../common/RoundIcon';
+import flagRu from '../../assets/flag_ru.png';
+import flagAm from '../../assets/flag_am.png';
+import flagMd from '../../assets/flag_md.png';
 
 const pricesList = [
   {

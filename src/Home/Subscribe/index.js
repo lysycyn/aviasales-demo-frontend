@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import media from '../common/media';
+import media from '../../common/media';
 import Form from './Form';
 
 import twitter from './twitter.svg';

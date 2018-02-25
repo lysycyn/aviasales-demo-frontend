@@ -60,7 +60,7 @@ const socialLinks = [
   },
   {
     icon: facebook,
-    title: 'В контакте',
+    title: 'Facebook',
   },
   {
     icon: twitter,

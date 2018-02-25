@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Post from './Post';
-import media from '../common/media';
+import media from '../../common/media';
 import plane from './plane.png';
 import dog from './dog.png';
 import list from './list.png';

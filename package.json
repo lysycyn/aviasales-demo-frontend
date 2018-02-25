@@ -6,8 +6,10 @@
   "dependencies": {
     "normalize.css": "^8.0.0",
     "react": "^16.2.0",
+    "react-day-picker": "^7.0.7",
     "react-dom": "^16.2.0",
     "react-flexbox-grid": "^2.0.0",
+    "react-router-dom": "^4.2.2",
     "styled-components": "^3.1.6"
   },
   "devDependencies": {
@@ -23,9 +25,11 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "now /build --public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "eslint --ext=js,jsx src",
-    "precommit": "yarn lint"
+    "precommit": "yarn lint",
+    "prepush": "yarn deploy"
   }
 }

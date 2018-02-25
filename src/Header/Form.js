@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from './../common/media';
+import { Route, Link } from 'react-router-dom';
+import media from '../common/media';
 import arrows from './arrows.svg';
 import arrow from './arrow.svg';
 import calendar from './calendar.svg';
@@ -193,7 +194,7 @@ const Buttons = styled.div`
   text-align: center;
 `;
 
-const Search = styled.button`
+const Search = styled(Link)`
   display: inline-block;
   width: 100%;
   padding: 16px 0;
@@ -283,8 +284,10 @@ const ClassLabel = styled.span`
 
 export default () => (
   <Form>
-    <Title>Поиск дешевых авиабилетов</Title>
-    <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
+    <Route path="/" exact>
+      <Title>Поиск дешевых авиабилетов</Title>
+      <SubTitle>Лучший способ купить авиабилеты дешево</SubTitle>
+    </Route>
     <Inputs>
       <InputWrapperLg depart>
         <Input type="text" placeholder="Город отправления" defaultValue="Москва" />
@@ -309,7 +312,7 @@ export default () => (
       </InputWrapperLg>
     </Inputs>
     <Buttons>
-      <Search>
+      <Search to="/search">
         Найти билеты
         <Icon src={plane} />
       </Search>

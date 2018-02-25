@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import styled from 'styled-components';
-import media from '../common/media';
+import media from '../../common/media';
 import Offer from './Offer';
 import provider from './provider.png';
 import pobeda from './pobeda.png';

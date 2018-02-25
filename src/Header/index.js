@@ -54,6 +54,7 @@ export default () => (
           <Title>
             <Logo src={logo} alt="Aviasales" />
             <Name>Aviasales</Name>
+            {/* <Route path="/search" component={}/> */}
           </Title>
         </Col>
         <Col xs={12} smOffset={1} sm={10}>
